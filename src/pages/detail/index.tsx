@@ -5,6 +5,7 @@ import {RouterScreen} from '../../router/index';
 import BaseTitleScreen from '../base/base-title-screen';
 import {DetailMvpView} from './detail-v';
 import {DetailPresenter} from './detail-p';
+import {HomeResponse} from './postbean/main-post-bean';
 
 class DetailScreen
   extends BaseTitleScreen<DetailMvpView, DetailPresenter>
@@ -12,8 +13,8 @@ class DetailScreen
 {
   protected init(): void {}
 
-  sendCodeSuccess(): void {
-    console.log('发送验证码成功');
+  getHomeSuccess(homeData: HomeResponse): void {
+    console.log(`首页数据---》${homeData}`);
   }
 
   showBaseToast(msg: string): void {
@@ -43,10 +44,12 @@ class DetailScreen
           }}
         />
 
+        <View style={[commonstyle.height_android_bar]} />
+
         <Button
-          title="发送验证码"
+          title="获取数据"
           onPress={() => {
-            this.presenter?.sendCode();
+            this.presenter?.getHome();
           }}
         />
       </View>

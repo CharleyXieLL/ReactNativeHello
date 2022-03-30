@@ -1,4 +1,5 @@
 import {BaseMvpView} from '../base/mvp/mvp-v';
+import {HomeResponse} from './postbean/main-post-bean';
 export interface DetailMvpView extends BaseMvpView {
-  sendCodeSuccess(): void;
+  getHomeSuccess(homeData: HomeResponse): void;
 }

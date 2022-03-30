@@ -151,7 +151,7 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField STRING, "API_URL", '"http://47.110.35.200:9000/"'
+            buildConfigField STRING, "API_URL", '"http://jhbeibaoke.com:8071/"'
             minifyEnabled false
             signingConfig signingConfigs.debug
             if (nativeArchitectures) {
@@ -162,7 +162,7 @@ android {
         }
 
         release {
-            buildConfigField STRING, "API_URL", '"http://114.55.67.165:9999/"'
+            buildConfigField STRING, "API_URL", '"http://jhbeibaoke.com:8071/"'
             zipAlignEnabled true
             shrinkResources true
             minifyEnabled true
@@ -196,14 +196,14 @@ dependencies {
     implementation "com.facebook.react:react-native:+"
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
-        exclude group:'com.facebook.fbjni'
+        exclude group: 'com.facebook.fbjni'
     }
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
-        exclude group:'com.facebook.flipper'
-        exclude group:'com.squareup.okhttp3', module:'okhttp'
+        exclude group: 'com.facebook.flipper'
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
     }
     debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}") {
-        exclude group:'com.facebook.flipper'
+        exclude group: 'com.facebook.flipper'
     }
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";

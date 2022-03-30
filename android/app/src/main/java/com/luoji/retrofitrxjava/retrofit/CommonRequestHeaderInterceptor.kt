@@ -43,7 +43,8 @@ class CommonRequestHeaderInterceptor(var context:Context):Interceptor {
         }
         val builder: Request.Builder = request.newBuilder()
         try {
-            builder.addHeader("basicParams", genBasicParams(body))
+            //todo 增加自定义header
+//            builder.addHeader("basicParams", genBasicParams(body))
             builder.addHeader("Accept-Language", getAcceptLanguage())
         } catch (e: JSONException) {
             e.printStackTrace()
