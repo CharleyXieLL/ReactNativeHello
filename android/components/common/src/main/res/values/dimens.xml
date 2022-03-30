@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="size_base_title_size">18sp</dimen>
+  <!--  定义BottomBar字体大小-->
+  <dimen name="design_bottom_navigation_active_text_size">12sp</dimen>
+  <dimen name="design_bottom_navigation_text_size">12sp</dimen>
+  <!--  定义BottomBar 图标距离顶部的距离-->
+  <!--  <dimen name="design_bottom_navigation_margin"></dimen>-->
+  <!--  改变BottomBar高度-->
+  <!--  <dimen name="design_bottom_navigation_height"></dimen>-->
+
+  <dimen name="size_common_library_title">18sp</dimen>
+  <dimen name="size_common_library_text">16sp</dimen>
+  <dimen name="size_common_library_paratext">14sp</dimen>
+  <dimen name="size_common_library_small_tip">13sp</dimen>
+  <dimen name="size_common_library_mini_tip">12sp</dimen>
+</resources>

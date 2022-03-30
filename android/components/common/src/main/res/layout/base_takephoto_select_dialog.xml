@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <data>
+    <variable
+        name="takePhotoDialogListener"
+        type="com.luoji.common.customerui.dialog.TakePhotoDialog" />
+  </data>
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:onClick="@{()->takePhotoDialogListener.onContentClick()}">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingHorizontal="10dp"
+        android:orientation="vertical">
+
+      <LinearLayout
+          android:id="@+id/relat_dialog_take_photo"
+          android:layout_width="match_parent"
+          android:onClick="@{()->takePhotoDialogListener.takePhoto()}"
+          android:layout_height="40dp"
+          android:background="@drawable/select_white_4r"
+          android:orientation="vertical"
+          android:paddingHorizontal="20dp">
+
+        <TextView
+            android:id="@+id/btn_take_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="@string/common_library_takephoto"
+            android:textAllCaps="false"
+            android:textColor="@color/color_common_library_text_dark"
+            android:textSize="@dimen/size_common_library_text" />
+
+      </LinearLayout>
+
+
+      <LinearLayout
+          android:id="@+id/relat_dialog_select_image"
+          android:layout_width="match_parent"
+          android:layout_height="40dp"
+          android:layout_marginTop="5dp"
+          android:orientation="vertical"
+          android:onClick="@{()->takePhotoDialogListener.selectAlbum()}"
+          android:background="@drawable/select_white_4r"
+          android:paddingHorizontal="20dp">
+
+        <TextView
+            android:id="@+id/tv_take_photo_select_image"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:text="@string/common_library_album"
+            android:textAllCaps="false"
+            android:textColor="@color/color_common_library_text_dark"
+            android:textSize="@dimen/size_common_library_text" />
+
+      </LinearLayout>
+
+      <TextView
+          android:id="@+id/tv_submit"
+          android:layout_width="match_parent"
+          android:layout_height="40dp"
+          android:onClick="@{()->takePhotoDialogListener.cancel()}"
+          android:layout_gravity="center_horizontal"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="10dp"
+          android:background="@drawable/select_white_4r"
+          android:gravity="center"
+          android:text="@string/common_library_cancel"
+          android:textAllCaps="false"
+          android:textColor="@color/color_common_library_text_sub_sub_sub"
+          android:textSize="@dimen/size_common_library_text" />
+    </LinearLayout>
+  </RelativeLayout>
+</layout>

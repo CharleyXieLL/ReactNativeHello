@@ -1,0 +1,45 @@
+plugins {
+  id 'com.android.library'
+}
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+def STRING = "String"
+
+android {
+  compileSdkVersion Versions.compileSdkVersion
+  buildToolsVersion Versions.buildToolsVersion
+
+  defaultConfig {
+    minSdkVersion Versions.minSdkVersion
+    targetSdkVersion Versions.targetSdkVersion
+    versionCode Versions.versionCode
+    versionName Versions.versionName
+
+    consumerProguardFiles "consumer-rules.pro"
+
+    buildConfigField STRING, "SHARED_NAME", '"COMMON_SHARED"'
+  }
+
+  dataBinding {
+    enabled = true
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
+
+dependencies {
+  implementation Libs.material
+  implementation Libs.appcompat
+  api Libs.eventbus
+  api Libs.toastcompat_drakeet
+  api Libs.glide4
+  kapt Libs.glide4_compiler
+  kapt Libs.databinding
+}
+repositories {
+  mavenCentral()
+}

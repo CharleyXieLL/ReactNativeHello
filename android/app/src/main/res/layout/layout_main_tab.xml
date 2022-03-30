@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/color_common_library_white">
+
+  <TextView
+      android:id="@+id/tv_main_tab_trip"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:gravity="center"
+      android:textColor="@color/color_main"
+      android:textSize="@dimen/size_common_library_text"
+      android:text="首页" />
+
+  <TextView
+      android:id="@+id/tv_main_tab_condition"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:gravity="center"
+      android:textColor="@color/color_common_library_text_important"
+      android:textSize="@dimen/size_common_library_text"
+      android:text="活动" />
+
+  <TextView
+      android:id="@+id/tv_main_tab_setting"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:gravity="center"
+      android:textColor="@color/color_common_library_text_important"
+      android:textSize="@dimen/size_common_library_text"
+      android:text="我的" />
+
+</LinearLayout>

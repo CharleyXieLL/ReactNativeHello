@@ -1,0 +1,34 @@
+plugins {
+  id 'com.android.library'
+}
+apply plugin: 'kotlin-android'
+
+android {
+  compileSdkVersion Versions.compileSdkVersion
+  buildToolsVersion Versions.buildToolsVersion
+
+  defaultConfig {
+    minSdkVersion Versions.minSdkVersion
+    targetSdkVersion Versions.targetSdkVersion
+    versionCode Versions.versionCode
+    versionName Versions.versionName
+
+    consumerProguardFiles "consumer-rules.pro"
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
+
+dependencies {
+  api Libs.gson
+  api Libs.kotlinx_coroutines
+  api Libs.retrofit2
+  api Libs.retrofit2_converter_gson
+  implementation project(':common')
+}
+repositories {
+  mavenCentral()
+}

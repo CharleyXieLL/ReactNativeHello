@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="common_library_takephoto">照相</string>
+  <string name="common_library_album">相册</string>
+  <string name="common_library_cancel">取消</string>
+</resources>

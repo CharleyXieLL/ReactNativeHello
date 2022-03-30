@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="50dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/tv_base_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="AndroidStart"
+        android:textColor="@color/color_common_title_color"
+        android:textSize="@dimen/size_base_title_size"
+        android:gravity="center" />
+
+    <RelativeLayout
+        android:id="@+id/base_title_relat_back"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+      <ImageView
+          android:layout_width="18dp"
+          android:layout_height="18dp"
+          android:layout_marginStart="20dp"
+          android:layout_centerVertical="true"
+          android:background="@drawable/ic_baseline_arrow_back_ios_24"/>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

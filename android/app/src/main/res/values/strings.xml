@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RetrofitRxJava</string>
+    <string name="please_again_to_exit">再点一次退出</string>
+    <string name="title_home">首页</string>
+    <string name="title_dashboard">仪表盘</string>
+    <string name="title_mine">个人中心</string>
+</resources>
