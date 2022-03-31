@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.luoji.retrofitrxjava">
+    package="com.luoji.rnhello">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".MainApplication"
+        android:name="com.luoji.rnhello.MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,10 +16,10 @@
         android:theme="@style/Theme.RetrofitRxJava"
         tools:ignore="AllowBackup,UnusedAttribute">
 
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.luoji.rnhello.MainActivity" />
 
         <activity
-            android:name=".react.MyReactActivity"
+            android:name="com.luoji.rnhello.react.MyReactActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
             android:exported="true"
             android:launchMode="singleTask"

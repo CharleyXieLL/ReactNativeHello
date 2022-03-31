@@ -6,10 +6,10 @@
     <data>
         <variable
             name="mainModel"
-            type="com.luoji.retrofitrxjava.ObserverMainModel" />
+            type="com.luoji.rnhello.ObserverMainModel" />
         <variable
             name="mainClick"
-            type="com.luoji.retrofitrxjava.MainActivity" />
+            type="com.luoji.rnhello.MainActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
