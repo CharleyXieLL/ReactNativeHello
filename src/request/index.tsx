@@ -50,8 +50,6 @@ export class RequestOptions<T> {
 //   return basicParams;
 // }
 
-// http://192.168.10.54:9080  http://47.110.35.200:9080
-// const baseUrl = process.env.NODE_ENV === 'production' ? 'https://api.mopanlawyers.com:8820' : 'http://47.110.35.200:9080';
 const baseUrl =
   process.env.NODE_ENV === 'production' ? 'xxx' : 'http://jhbeibaoke.com:8071/';
 
