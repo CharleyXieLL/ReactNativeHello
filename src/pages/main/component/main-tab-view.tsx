@@ -20,7 +20,7 @@ interface MainTabItemProps {
 
 class MainTabItemState {
   icon: ImageSourcePropType = ImagePathMain.image_tab_home_grey;
-  text: RouterScreen = RouterScreen.HOME;
+  text: string = '首页';
 }
 
 const MainTabItemView = (props: MainTabItemProps) => {
@@ -33,19 +33,19 @@ const MainTabItemView = (props: MainTabItemProps) => {
         status.icon = props.isCheck
           ? ImagePathMain.image_tab_home_light
           : ImagePathMain.image_tab_home_grey;
-        status.text = RouterScreen.HOME;
+        status.text = '首页';
         break;
       case RouterScreen.PROFILE:
         status.icon = props.isCheck
           ? ImagePathMain.image_tab_profile_light
           : ImagePathMain.image_tab_profile_grey;
-        status.text = RouterScreen.PROFILE;
+        status.text = '看点';
         break;
       case RouterScreen.MINE:
         status.icon = props.isCheck
           ? ImagePathMain.image_tab_mine_light
           : ImagePathMain.image_tab_mine_grey;
-        status.text = RouterScreen.MINE;
+        status.text = '我的';
         break;
     }
     setItemState(status);

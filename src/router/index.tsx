@@ -6,9 +6,11 @@ import MainScreen from '../pages/main/index';
 import DetailScreen from '../pages/detail/index';
 import NavigationService from './NavigationService';
 import SplashScreen from '../pages/splash/index';
+import LoginScreen from '../pages/login/index';
 
 export enum RouterScreen {
   SPLASH = 'Splash',
+  LOGIN = 'Login',
   MAIN = 'Main',
   HOME = 'Home',
   PROFILE = 'Profile',
@@ -28,6 +30,11 @@ function MyRouter() {
         <Stack.Screen
           name={RouterScreen.SPLASH}
           component={SplashScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={RouterScreen.LOGIN}
+          component={LoginScreen}
           options={{headerShown: false}}
         />
         <Stack.Screen

@@ -9,12 +9,10 @@ import ProfileScreen from '../profile/index';
 import {RouterScreen} from '../../router';
 import NavigationService from '../../router/NavigationService';
 import BaseScreen from '../base/base-screen';
-import {MainMvpView} from './main-view';
+import {MainMvpView} from './main-v';
 import {MainPresenter} from './main-p';
 
 const MainStack = createNativeStackNavigator();
-
-type MainScreenProps = {};
 
 class MainScreen
   extends BaseScreen<MainMvpView, MainPresenter>

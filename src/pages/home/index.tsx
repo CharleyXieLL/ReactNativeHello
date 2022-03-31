@@ -6,17 +6,24 @@ import BaseScreen from '../base/base-screen';
 import {HomeMvpView} from './home-v';
 import {HomePresenter} from './home-p';
 import NavigationService from '../../router/NavigationService';
+import {HomeResponse} from '../../bean/main-res-bean';
 
 class HomeScreen
   extends BaseScreen<HomeMvpView, HomePresenter>
   implements HomeMvpView
 {
-  protected init(): void {}
+  protected init(): void {
+    this.presenter?.getHome();
+  }
   protected bindPresenter(): HomePresenter {
     return new HomePresenter();
   }
   protected getMvpView(): HomeMvpView {
     return this;
+  }
+
+  getHomeSuccess(homeData: HomeResponse): void {
+    console.log(`首页数据---》${homeData.advertising}`);
   }
 
   render(): React.ReactNode {
