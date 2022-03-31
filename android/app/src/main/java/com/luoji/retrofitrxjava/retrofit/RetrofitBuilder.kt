@@ -1,15 +1,9 @@
 package com.luoji.retrofitrxjava.retrofit
 
 import android.content.Context
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.LiveDataScope
-import androidx.lifecycle.liveData
 import com.google.gson.Gson
 import com.luoji.httpsdata.ResponseBean
 import com.luoji.retrofitrxjava.BuildConfig
-import com.luoji.retrofitrxjava.bean.SendVerifyResponseBean
-import com.luoji.retrofitrxjava.retrofit.RequestCode.NET_ERROR
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
@@ -22,16 +16,24 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import kotlin.coroutines.CoroutineContext
-import kotlin.coroutines.EmptyCoroutineContext
-import kotlin.experimental.ExperimentalTypeInference
 
 /**
  * Author:Ace
  * Date:On 2022/1/12
  */
-object RetrofitBuilder {
+public class RetrofitBuilder private constructor() {
 
-    private const val MAX_TIME = 30L
+    companion object {
+        fun getInstance(): RetrofitBuilder {
+            return RetrofitBuilderHelper.instance
+        }
+    }
+
+    private object RetrofitBuilderHelper {
+        val instance = RetrofitBuilder();
+    }
+
+    private val MAX_TIME = 30L
     private val sDispatcher = Dispatcher()
     private val sConnectionPool = ConnectionPool()
 
@@ -67,7 +69,7 @@ object RetrofitBuilder {
     }
 
     private fun <T> httpGo(
-        request: suspend ()->ResponseBean<T>?
+        request: suspend () -> ResponseBean<T>?
     ): Flow<ResponseBean<T>> = flow {
         runCatching {
             request()
@@ -88,25 +90,51 @@ object RetrofitBuilder {
         }
     }
 
+    /**
+     * 开始请求网络数据默认回调主线程
+     */
+    fun <T> start(
+        callback: HttpRequestCallback<T>.() -> Unit,
+        request: suspend () -> ResponseBean<T>?,
+    ) = CoroutineScope(Dispatchers.IO).launch {
+        httpGo { request() }.collect {
+            responseLogic(Dispatchers.Main, callback, it);
+        }
+    }
+
+    /**
+     * 开始请求网络数据默 传递回调线程
+     */
     fun <T> start(
         observerContext: CoroutineContext = Dispatchers.Main,
         callback: HttpRequestCallback<T>.() -> Unit,
         request: suspend () -> ResponseBean<T>?,
     ) = CoroutineScope(Dispatchers.IO).launch {
         httpGo { request() }.collect {
-            CoroutineScope(observerContext).launch {
-                val requestCallback = HttpRequestCallback<T>().apply(callback)
-                when (it.code) {
-                    RequestCode.SUCCESS -> {
-                        requestCallback.successCallback?.invoke(it.data!!)
-                    }
-                    RequestCode.FORCE_LOGOUT -> {
-                        //强制退出等
+            responseLogic(observerContext, callback, it);
+        }
+    }
+
+    /**
+     * 处理请求之后的数据
+     */
+    private fun <T> responseLogic(
+        observerContext: CoroutineContext = Dispatchers.Main,
+        callback: HttpRequestCallback<T>.() -> Unit,
+        value: ResponseBean<T>
+    ) {
+        CoroutineScope(observerContext).launch {
+            val requestCallback = HttpRequestCallback<T>().apply(callback)
+            when (value.code) {
+                RequestCode.SUCCESS -> {
+                    requestCallback.successCallback?.invoke(value.data!!)
+                }
+                RequestCode.FORCE_LOGOUT -> {
+                    //强制退出等
 //                    requestCallback.forceLogoutCallback?.invoke()
-                    }
-                    else -> {
-                        requestCallback.failureCallback?.invoke(it.msg, it.code)
-                    }
+                }
+                else -> {
+                    requestCallback.failureCallback?.invoke(value.msg, value.code)
                 }
             }
         }

@@ -12,7 +12,9 @@ const backEventName = 'hardwareBackPress';
 abstract class BaseScreen<
   V extends BaseMvpView,
   P extends BasePresenter<V>,
-> extends React.Component {
+  PROPS = {},
+  STATE = {},
+> extends React.Component<PROPS, STATE> {
   protected presenter: P | undefined;
 
   private lastBackPressedTime: number = 0;

@@ -10,7 +10,9 @@ import {BaseMvpView} from './mvp/mvp-v';
 abstract class BaseTitleScreen<
   V extends BaseMvpView,
   P extends BasePresenter<V>,
-> extends BaseScreen<V, P> {
+  PROPS = {},
+  STATE = {},
+> extends BaseScreen<V, P, PROPS, STATE> {
   protected abstract getContent(): React.ReactElement;
   protected abstract getTitle(): RouterScreen;
   render(): React.ReactNode {

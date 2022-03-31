@@ -89,7 +89,7 @@ abstract class BaseActivity<T, VM : BaseViewModel<T>, DB> :AppCompatActivity(),
 
     val textViewTitle:TextView = viewGroup.findViewById(R.id.tv_base_title)
     val relatArrow:RelativeLayout = viewGroup.findViewById(R.id.base_title_relat_back)
-    textViewTitle.setText(attachTitleText())
+    textViewTitle.text = attachTitleText()
     relatArrow.setOnClickListener {
       finish()
     }
@@ -100,13 +100,6 @@ abstract class BaseActivity<T, VM : BaseViewModel<T>, DB> :AppCompatActivity(),
 
     frameLayout.addView(viewActivity)
     setContentView(viewGroup)
-
-//    val rootDataBinding: LayoutBaseContainerBinding = DataBindingUtil.inflate(LayoutInflater.from(activity), R.layout.layout_base_container,null,false)
-//    rootDataBinding.baseTitle = BaseTitleData(BaseTitleData.NORMAL_BACK,attachTitleText())
-//    rootDataBinding.baseContainerFramelayout.addView(LayoutInflater.from(activity).inflate(onShowViewById(),null))
-//    rootDataBinding.backClick = this
-//    dataBinding = DataBindingUtil.bind(rootDataBinding.root)
-//    setContentView(rootDataBinding.root)
   }
 
   abstract fun attachTitleText():String?
