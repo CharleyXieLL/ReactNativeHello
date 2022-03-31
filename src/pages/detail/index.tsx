@@ -5,17 +5,12 @@ import {RouterScreen} from '../../router/index';
 import BaseTitleScreen from '../base/base-title-screen';
 import {DetailMvpView} from './detail-v';
 import {DetailPresenter} from './detail-p';
-import {HomeResponse} from './postbean/main-post-bean';
 
 class DetailScreen
   extends BaseTitleScreen<DetailMvpView, DetailPresenter>
   implements DetailMvpView
 {
   protected init(): void {}
-
-  getHomeSuccess(homeData: HomeResponse): void {
-    console.log(`首页数据---》${homeData}`);
-  }
 
   showBaseToast(msg: string): void {
     this.showToast(msg);
@@ -46,12 +41,7 @@ class DetailScreen
 
         <View style={[commonstyle.height_android_bar]} />
 
-        <Button
-          title="获取数据"
-          onPress={() => {
-            this.presenter?.getHome();
-          }}
-        />
+        <Button title="获取数据" onPress={() => {}} />
       </View>
     );
   }
