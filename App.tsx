@@ -1,5 +1,8 @@
 import MyRouter from './src/router/index';
 import * as React from 'react';
+/**
+ * 吐司
+ */
 import {RootSiblingParent} from 'react-native-root-siblings';
 /**
  * Sample React Native App

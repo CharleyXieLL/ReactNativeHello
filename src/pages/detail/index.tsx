@@ -12,10 +12,6 @@ class DetailScreen
 {
   protected init(): void {}
 
-  showBaseToast(msg: string): void {
-    this.showToast(msg);
-  }
-
   protected bindPresenter(): DetailPresenter {
     return new DetailPresenter();
   }
